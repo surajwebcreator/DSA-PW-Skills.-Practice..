@@ -92,6 +92,22 @@ class LinkedList {
         temp.val = value;
     }
 
+    // delete element from given index
+    deleteElement(idx){
+        if(idx==0)this.head = this.head.next;
+        else if(idx>=this.size || idx<0){
+            throw new Error("mat kar yrr, mera dimaag kharab ho jayega");
+        }else{
+            let temp = this.head;
+            for (let i = 1; i < idx; i++) {
+                temp = temp.next;
+            }
+            temp.next = temp.next.next;
+        }
+        this.size--;
+    }
+
+
     // display linked list
     display(){
         let temp = this.head;
@@ -107,27 +123,31 @@ class LinkedList {
 
 let list = new LinkedList();
 list.insertAtTail(1);
-list.insertAtTail(2);
-list.insertAtTail(3);
-list.display();
-console.log("Size of linked list: " + list.size);
+// list.insertAtTail(2);
+// list.insertAtTail(3);
+// list.display();
+// console.log("Size of linked list: " + list.size);
 list.insertAtTail(4);
 list.insertAtTail(5);
-list.display();
-console.log("Size of linked list: " + list.size);
+// list.display();
+// console.log("Size of linked list: " + list.size);
 
 // insert at head of linked list
 list.insertAtHead(23);
 list.insertAtHead(45);
-list.display();
-console.log("Size of linked list: " + list.size);
+// list.display();
+// console.log("Size of linked list: " + list.size);
 
 // insert at the given index
 list.insert(2, 100);
-list.display();
+// list.display();
 // getting element
-list.getElement(3);
-list.getElement(2);
+// list.getElement(3);
+// list.getElement(2);
 // setting element
 list.setElement(2, 900);
+list.display();
+// deleting element
+list.deleteElement(2);
+// list.deleteElement(-1);
 list.display();
