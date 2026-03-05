@@ -72,3 +72,4 @@ list.addidxAt(3, 100);
 list.addidxAt(6, 200);
 list.print();
 console.log(list.size)
+
