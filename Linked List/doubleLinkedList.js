@@ -53,16 +53,7 @@ class DoubleLinkedList {
      // delete at head of linked list
     deleteAtHead(){
         this.head = this.head.next;
-        this.head.prev = null;
-        // let temp = new Node(val);
-        // if(this.head === null){
-        //     this.head = temp;
-        //     this.tail = temp;
-        // } else {
-        //     temp.next = this.head;
-        //     this.head = temp;
-        //     temp.prev = null;
-        // }  
+        this.head.prev = null; 
         this.size--;
     } 
 
@@ -80,6 +71,13 @@ class DoubleLinkedList {
         this.size++;
     }
 
+     // delete at end of linked list
+    deleteAtTail(){
+        this.tail = this.tail.prev;
+        this.tail.next = null;
+        this.size--;
+    }
+
     // display reverse method
     displayreverse(){
         let curr = this.head;
@@ -93,6 +91,21 @@ class DoubleLinkedList {
             curr = curr.prev;
         }
         console.log(res + "null");
+    }
+
+    // insert At index..
+    insertAt(idx, number){
+        let num = new Node(number);
+        let count = 0;
+        let temp = this.head;
+        while (count<idx-1) {
+            temp = temp.next;
+            count++;
+        }
+        let y = temp.next;
+        temp.next = num;
+        num.prev = temp;
+        num.next = y;
     }
 }
 
@@ -109,4 +122,7 @@ list.insertAtTail(30);
 list.insertAtTail(70);
 // list.display();
 // list.deleteAtHead();
+// list.deleteAtTail();
+list.display();
+list.insertAt(2, 55);
 list.display();
