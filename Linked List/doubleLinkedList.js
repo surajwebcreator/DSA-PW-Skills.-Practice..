@@ -107,6 +107,19 @@ class DoubleLinkedList {
         num.prev = temp;
         num.next = y;
     }
+
+     // delete At index..
+    deleteAt(idx){
+        let temp = this.head;
+    if(idx==0) this.head = this.head.next;this.head.prev = null;
+        for (let i = 0; i < idx-1; i++) {
+            temp = temp.next;      
+        }
+        temp.next = temp.next.next;
+        temp = temp.next;
+        temp.prev = temp.prev.prev;
+        this.size--;
+    }
 }
 
 let list = new DoubleLinkedList();
@@ -123,6 +136,7 @@ list.insertAtTail(70);
 // list.display();
 // list.deleteAtHead();
 // list.deleteAtTail();
+// list.insertAt(2, 55);
 list.display();
-list.insertAt(2, 55);
+list.deleteAt(0);
 list.display();
