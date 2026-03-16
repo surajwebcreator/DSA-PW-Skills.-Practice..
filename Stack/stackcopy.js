@@ -22,9 +22,17 @@ class Stack {
 
 let st = new Stack();
 st.push(10); st.push(20); st.push(30); st.push(40);
-console.log(st.item)
-let reverseStack = new Stack();
+console.log('orginal', st.item);
+
+let tempStack = new Stack();
 while (st.item.length!=0) {
-    reverseStack.push(st.pop());
+    tempStack.push(st.pop());
 }
-console.log(reverseStack.item);
+console.log('reverse', tempStack.item);
+
+let finalStack = new Stack();
+while (tempStack.item.length!=0) {
+    finalStack.push(tempStack.pop());
+}
+console.log('final ` ' , finalStack.item);
+
